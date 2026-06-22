@@ -150,6 +150,8 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'educarparatransformarcolegio@gmail.com'
 EMAIL_HOST_PASSWORD = 'wjvyxygngxebxsgl'
 
+EMAIL_TIMEOUT = 10
+
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 CSRF_TRUSTED_ORIGINS = [

@@ -214,11 +214,14 @@ class DocenteDictaMateria(models.Model):
 
 
 class DocenteDisciplina(models.Model):
+    id = models.AutoField(primary_key=True)
+
     legajo_docente = models.ForeignKey(
         Docente,
         models.DO_NOTHING,
         db_column='legajo_docente',
     )
+
     id_disciplina = models.ForeignKey(
         DisciplinaDeportiva,
         models.DO_NOTHING,
@@ -228,7 +231,6 @@ class DocenteDisciplina(models.Model):
     class Meta:
         managed = False
         db_table = 'docente_disciplina'
-
 
 class Evaluacion(models.Model):
     id_evaluacion = models.AutoField(primary_key=True)

@@ -124,11 +124,6 @@ STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-from pathlib import Path
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'core' / 'static',
@@ -151,3 +146,5 @@ EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'educarparatransformarcolegio@gmail.com'
 EMAIL_HOST_PASSWORD = 'wjvyxygngxebxsgl'
+
+STATIC_ROOT = BASE_DIR / "staticfiles"

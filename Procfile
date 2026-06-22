@@ -1,1 +1,1 @@
-web: gunicorn educar_pagina_proyecto.wsgi:application
+web: cd educar_pagina_proyecto && gunicorn educar_pagina_proyecto.wsgi:application

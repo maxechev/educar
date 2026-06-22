@@ -76,11 +76,11 @@ WSGI_APPLICATION = 'educar_pagina_proyecto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'colegio',
+        'NAME': 'railway',
         'USER': 'root',
-        'PASSWORD': '',  # en XAMPP suele estar vacío
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'PASSWORD': 'eXuSElxFkCqJDbncuZIjGwPiFJrzUAau',
+        'HOST': 'reseau.proxy.rlwy.net',
+        'PORT': '26034',
     }
 }
 
@@ -119,24 +119,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
+# Static files
 STATIC_URL = 'static/'
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
 
 STATICFILES_DIRS = [
     BASE_DIR / 'core' / 'static',
 ]
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
 #Conectar con Airtable
 AIRTABLE_TOKEN = "patXqBRQT7VKBJ4ho.ca0978a60586b75d7dbbbd048718e3787d8d6bfcad3b9b85469507b0115e68d6"
 AIRTABLE_BASE_ID = "appZFfSOhXkYJDNKA"
 AIRTABLE_TABLE_NAME = "Solicitudes" 
-
-#Guardar imagenes de noticias:
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -146,5 +147,3 @@ EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'educarparatransformarcolegio@gmail.com'
 EMAIL_HOST_PASSWORD = 'wjvyxygngxebxsgl'
-
-STATIC_ROOT = BASE_DIR / "staticfiles"

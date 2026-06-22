@@ -22,7 +22,7 @@ class Alumno(models.Model):
     id_curso = models.ForeignKey('Curso', models.DO_NOTHING, db_column='id_curso', blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'alumno'
 
     def __str__(self):
@@ -63,7 +63,7 @@ class Asistencia(models.Model):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'asistencia'
 
     def __str__(self):
@@ -80,7 +80,7 @@ class Aula(models.Model):
     estado = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'aula'
 
 
@@ -93,7 +93,7 @@ class Calificacion(models.Model):
     legajo_alumno = models.ForeignKey(Alumno, models.DO_NOTHING, db_column='legajo_alumno')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'calificacion'
 
 
@@ -128,7 +128,7 @@ class Cuota(models.Model):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'cuota'
 
 class Curso(models.Model):
@@ -142,7 +142,7 @@ class Curso(models.Model):
     id_aula = models.ForeignKey(Aula, models.DO_NOTHING, db_column='id_aula', blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'curso'
 
 
@@ -152,7 +152,7 @@ class CursoCursaMaterias(models.Model):
     horarios = models.TextField(db_collation='utf8mb4_bin', blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'curso_cursa_materias'
 
 
@@ -161,7 +161,7 @@ class CursoParticipaViaje(models.Model):
     id_viaje = models.ForeignKey('Viaje', models.DO_NOTHING, db_column='id_viaje')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'curso_participa_viaje'
 
 
@@ -170,7 +170,7 @@ class Directivo(models.Model):
     id_persona = models.ForeignKey('Persona', models.DO_NOTHING, db_column='id_persona')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'directivo'
 
 
@@ -185,7 +185,7 @@ class DisciplinaDeportiva(models.Model):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'disciplina_deportiva'
 
     def __str__(self):
@@ -200,7 +200,7 @@ class Docente(models.Model):
     fecha_ingreso = models.DateField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'docente'
 
 
@@ -209,7 +209,7 @@ class DocenteDictaMateria(models.Model):
     id_materia = models.ForeignKey('Materia', models.DO_NOTHING, db_column='id_materia')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'docente_dicta_materia'
 
 
@@ -229,7 +229,7 @@ class DocenteDisciplina(models.Model):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'docente_disciplina'
 
 class Evaluacion(models.Model):
@@ -331,7 +331,7 @@ class Inscripcion(models.Model):
     legajo_alumno = models.ForeignKey(Alumno, models.DO_NOTHING, db_column='legajo_alumno')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'inscripcion'
 
 
@@ -341,7 +341,7 @@ class Instalacion(models.Model):
     estado = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'instalacion'
 
 
@@ -353,7 +353,7 @@ class Materia(models.Model):
     cantidad_clases = models.IntegerField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'materia'
 
 
@@ -376,7 +376,7 @@ class Noticia(models.Model):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'noticia'
 
 
@@ -397,7 +397,7 @@ class Persona(models.Model):
     email = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'persona'
 
     def __str__(self):
@@ -411,7 +411,7 @@ class PersonalAdministrativo(models.Model):
     fecha_ingreso = models.DateField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'personal_administrativo'
 
 
@@ -422,7 +422,7 @@ class Preceptor(models.Model):
     fecha_ingreso = models.DateField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'preceptor'
 
 
@@ -453,7 +453,7 @@ class Reserva(models.Model):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'reserva'
 
 
@@ -465,7 +465,7 @@ class SolicitudViaje(models.Model):
     legajo_docente = models.ForeignKey(Docente, models.DO_NOTHING, db_column='legajo_docente')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'solicitud_viaje'
 
 
@@ -476,7 +476,7 @@ class Tutor(models.Model):
     email_contacto = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'tutor'
 
 
@@ -502,7 +502,7 @@ class TutorTutoraAlumno(models.Model):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'tutor_tutora_alumno'
 
 
@@ -513,7 +513,7 @@ class Usuario(models.Model):
     correo = models.CharField(unique=True, max_length=100, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'usuario'
         
     def __str__(self):
@@ -528,7 +528,7 @@ class Vehiculo(models.Model):
     estado = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'vehiculo'
 
 
@@ -541,7 +541,7 @@ class Viaje(models.Model):
     id_solicitud = models.OneToOneField(SolicitudViaje, models.DO_NOTHING, db_column='id_solicitud')
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'viaje'
 
 
@@ -551,7 +551,7 @@ class ViajeUtilizaVehiculo(models.Model):
     fecha_uso = models.DateField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'viaje_utiliza_vehiculo'
 
 class PostulacionLaboral(models.Model):
@@ -582,7 +582,7 @@ class PostulacionLaboral(models.Model):
     fecha_postulacion = models.DateTimeField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'postulacion_laboral'
 
 class SolicitudInscripcion(models.Model):
@@ -636,7 +636,7 @@ class SolicitudInscripcion(models.Model):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'solicitud_inscripcion'
         
 class PagoPendiente(models.Model):
@@ -669,7 +669,7 @@ class PagoPendiente(models.Model):
     fecha_solicitud = models.DateTimeField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'pago_pendiente'
         
 class Arancel(models.Model):
@@ -678,7 +678,7 @@ class Arancel(models.Model):
     monto = models.DecimalField(max_digits=10, decimal_places=2)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'arancel'
         
 class DocumentacionAlumno(models.Model):
@@ -742,5 +742,5 @@ class DocumentacionAlumno(models.Model):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'documentacion_alumno'

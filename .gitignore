@@ -1,11 +1,28 @@
-# Python cache
+# Entorno virtual
+venv/
+env/
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-# Django
-db.sqlite3
+# Archivos media subidos por usuarios
+media/
 
+# Archivos temporales
+*.log
 
-# Environment
-venv/
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Variables sensibles
 .env

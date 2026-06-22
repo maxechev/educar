@@ -9,6 +9,7 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils import timezone
 import re
+import resend
 import os
 from django.shortcuts import render, redirect
 from django.db.models import Avg
@@ -1196,28 +1197,24 @@ def enviar_consulta(request):
             )
             return redirect('contacto')
 
-        email = EmailMessage(
-            subject=f"Consulta desde la web - {nombre}",
-            body=f"""
-Nueva consulta recibida
-
-Nombre: {nombre}
-Correo: {correo}
-
-Mensaje:
-{mensaje}
-""",
-            from_email='educarparatransformarcolegio@gmail.com',
-            to=['educarparatransformarcolegio@gmail.com']
-        )
-
         try:
-            email.send()
-        except Exception as e:
-            print("ERROR SMTP:", e)
-            raise
+            resend.api_key = os.environ.get("RESEND_API_KEY")
 
-        email.send()
+            resend.Emails.send({
+                "from": "onboarding@resend.dev",
+                "to": ["educarparatransformarcolegio@gmail.com"],
+                "subject": f"Consulta desde la web - {nombre}",
+                "html": f"""
+                    <h2>Nueva consulta recibida</h2>
+                    <p><strong>Nombre:</strong> {nombre}</p>
+                    <p><strong>Correo:</strong> {correo}</p>
+                    <p>{mensaje}</p>
+                """
+            })
+
+        except Exception as e:
+            print("ERROR RESEND:", e)
+            raise
 
         messages.success(
             request,
@@ -1233,7 +1230,7 @@ Mensaje:
             request.session["panel_activo"] = "contacto"
             return redirect('dashboard-padres')
 
-        if Alumno.objects.fifaprlter(id_persona=persona).exists():
+        if Alumno.objects.filter(id_persona=persona).exists():
             request.session["panel_activo"] = "contacto"
             return redirect('dashboard-alumno')
 

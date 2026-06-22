@@ -25,8 +25,9 @@ SECRET_KEY = 'django-insecure-l^n1bt2ey@d=d^1#alypeaeo6%%d1n)z(zkum)eii*2#-41)m&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = [
+    "educar-production.up.railway.app",
+]
 
 # Application definition
 
@@ -150,3 +151,7 @@ EMAIL_HOST_USER = 'educarparatransformarcolegio@gmail.com'
 EMAIL_HOST_PASSWORD = 'wjvyxygngxebxsgl'
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://educar-production.up.railway.app",
+]

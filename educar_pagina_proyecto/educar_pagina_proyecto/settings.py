@@ -141,7 +141,7 @@ AIRTABLE_TOKEN = "patXqBRQT7VKBJ4ho.ca0978a60586b75d7dbbbd048718e3787d8d6bfcad3b
 AIRTABLE_BASE_ID = "appZFfSOhXkYJDNKA"
 AIRTABLE_TABLE_NAME = "Solicitudes" 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

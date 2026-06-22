@@ -1210,14 +1210,6 @@ Mensaje:
             from_email='educarparatransformarcolegio@gmail.com',
             to=['educarparatransformarcolegio@gmail.com']
         )
-        
-        import socket
-
-        try:
-            socket.create_connection(("smtp.gmail.com", 587), timeout=10)
-            print("SMTP OK")
-        except Exception as e:
-            print("SMTP ERROR:", e)
 
         try:
             email.send()

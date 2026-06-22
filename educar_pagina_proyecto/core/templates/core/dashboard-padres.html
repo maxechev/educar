@@ -572,6 +572,7 @@
           </div>
           <!-- CONTACTO -->
           <div id="panel-contacto" class="panel">
+            <input type="hidden" name="origen" value="dashboard">
             <p class="section-title">Contacto con Administración</p>
 
             <div class="stat-grid">
@@ -632,6 +633,7 @@
               {% endfor %} {% endif %}
               <form action="{% url 'enviar-consulta' %}" method="POST">
                 {% csrf_token %}
+                <input type="hidden" name="origen" value="dashboard">
                 <input
                   type="hidden"
                   name="nombre"

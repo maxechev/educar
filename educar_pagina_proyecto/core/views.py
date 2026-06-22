@@ -1169,6 +1169,7 @@ def enviar_consulta(request):
         nombre = request.POST.get("nombre", "").strip()
         correo = request.POST.get("email", "").strip()
         mensaje = request.POST.get("mensaje", "").strip()
+        origen = request.POST.get("origen", "contacto")
 
         # Nombre
         if not nombre.replace(" ", "").isalpha():
@@ -1222,19 +1223,22 @@ def enviar_consulta(request):
         )
 
 
-    persona = obtener_persona(request)
+        persona = obtener_persona(request)
+        
+        if origen == "contacto":
+            return redirect("contacto")
 
-    if persona:
+        if persona:
 
-        if Tutor.objects.filter(id_persona=persona).exists():
-            request.session["panel_activo"] = "contacto"
-            return redirect('dashboard-padres')
+            if Tutor.objects.filter(id_persona=persona).exists():
+                request.session["panel_activo"] = "contacto"
+                return redirect('dashboard-padres')
 
-        if Alumno.objects.filter(id_persona=persona).exists():
-            request.session["panel_activo"] = "contacto"
-            return redirect('dashboard-alumno')
+            if Alumno.objects.filter(id_persona=persona).exists():
+                request.session["panel_activo"] = "contacto"
+                return redirect('dashboard-alumno')
 
-    return redirect('contacto')
+        return redirect('contacto')
 
 
 @never_cache

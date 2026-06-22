@@ -628,6 +628,7 @@
             <form action="{% url 'enviar-consulta' %}" method="POST">
 
               {% csrf_token %}
+              <input type="hidden" name="origen" value="dashboard">
 
               <input
                 type="hidden"

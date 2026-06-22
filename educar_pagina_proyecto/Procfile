@@ -1,1 +1,1 @@
-web: cd educar_pagina_proyecto && gunicorn educar_pagina_proyecto.wsgi:application
+web: gunicorn educar_pagina_proyecto.wsgi:application --bind 0.0.0.0:$PORT
